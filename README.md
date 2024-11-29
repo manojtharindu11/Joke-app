@@ -1,16 +1,16 @@
-# jokeapp
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+lib/
+├── data/                   # Handles data sources and models
+│   ├── dto/                # Data Transfer Objects (DTOs) for mapping API responses
+│   │   └── joke_dto.dart   # DTO for Joke API
+│   └── services/           # Handles API calls and data fetching
+│       └── joke_service.dart
+├── presentation/           # Contains UI components (Views, Widgets)
+│   ├── screens/            # Screens of the app
+│   │   └── home_page.dart  # HomePage UI
+│   └── styles/             # Styling constants and theme-related classes
+│       └── app_styles.dart # Styles and colors
+├── state/                  # State management (using provider, bloc, etc.)
+│   └── joke_state.dart     # Manages the state of jokes
+├── utils/                  # Utility functions or constants
+│   └── app_constants.dart  # App-wide constants like URLs
+└── main.dart               # Entry point of the application
