@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jokeapp/styles/app_styles.dart';
 import 'package:provider/provider.dart';
 import '../../state/joke_state.dart';
 
@@ -12,10 +13,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Joke Application'),
-        backgroundColor: const Color.fromARGB(255, 135, 173, 204),
+        backgroundColor: AppStyles.primaryColor,
       ),
       body: Container(
-        padding: const EdgeInsets.all(16.0),
+        padding: AppStyles.screenPadding,
         child: Column(
           children: [
             Center(
@@ -42,7 +43,7 @@ class HomePage extends StatelessWidget {
                       return Card(
                         margin: const EdgeInsets.symmetric(
                           vertical: 8.0,
-                          horizontal: 12.0,
+                          horizontal: 16.0,
                         ),
                         elevation: 4,
                         shape: RoundedRectangleBorder(
