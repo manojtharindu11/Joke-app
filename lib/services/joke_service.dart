@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:jokeapp/data/dto/joke_dto.dart';
+import 'package:jokeapp/utils/app_constants.dart';
 
 class JokeService {
   final Dio _dio = Dio();
@@ -7,7 +8,7 @@ class JokeService {
   Future<List<JokeDto>> fetchJokes() async {
     try {
       final response =
-          await _dio.get("https://v2.jokeapi.dev/joke/any?amount=10");
+          await _dio.get(AppConstants.jokeApiUrl);
 
       if (response.data['jokes'] != null) {
         return (response.data['jokes'] as List)
