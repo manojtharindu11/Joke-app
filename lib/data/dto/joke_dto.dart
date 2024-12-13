@@ -13,4 +13,13 @@ class JokeDto {
         setup: json['setup'],
         delivery: json['delivery']);
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'type': type,
+      'joke': joke,
+      'setup': setup,
+      'delivery': delivery,
+    };
+  }
 }
