@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:jokeapp/data/dto/joke_dto.dart';
-import 'package:jokeapp/utils/app_constants.dart';
+import 'package:fetch_jokes/data/dto/joke_dto.dart';
+import 'package:fetch_jokes/utils/app_constants.dart';
 
 class JokeService {
   final Dio _dio = Dio();
