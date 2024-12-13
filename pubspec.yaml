@@ -63,7 +63,6 @@ flutter:
   assets:
     - assets/images/laughing_image.jpg
     - assets/images/laughing_group.jpg
-    - assets/images/surpise-box.png
 
   fonts:
     - family: LobsterTwo-Bold
