@@ -47,7 +47,7 @@ class JokeCategoryDropdown extends StatelessWidget {
                   style: const TextStyle(
                     fontFamily: 'LobsterTwo-Regular',
                     color: Colors.black87,
-                    fontSize: 18,
+                    fontSize: 20,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

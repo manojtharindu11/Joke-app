@@ -5,12 +5,39 @@ import '../components/fetch_jokes_button.dart';
 import '../components/joke_card.dart';
 import '../components/joke_category_dropdown.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final jokeState = Provider.of<JokeState>(context);
+
+    // Listen to loading state change and scroll to the top once loading is complete
+    if (!jokeState.isLoading && jokeState.jokes.isNotEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        // Scroll to the top without any gap
+        _scrollController.jumpTo(0);
+      });
+    }
 
     return Scaffold(
       body: Column(
@@ -68,17 +95,13 @@ class HomePage extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // Show loading indicator if jokes are being fetched
-          if (jokeState.isLoading)
-            const Center(child: CircularProgressIndicator()),
-
           // If no jokes fetched
           if (jokeState.jokes.isEmpty && !jokeState.isLoading)
             const Center(
               child: Text(
                 "No jokes fetched yet!",
-                style: TextStyle(
-                    fontFamily: 'Roboto-Regular', color: Colors.black87),
+                style:
+                    TextStyle(fontFamily: 'Lato-Italic', color: Colors.black87),
               ),
             ),
 
@@ -89,15 +112,15 @@ class HomePage extends StatelessWidget {
                 jokeState.fetchJokes();
               },
               child: Scrollbar(
-                thumbVisibility: true,
-                thickness: 8,
-                radius: const Radius.circular(8),
+                isAlwaysShown: true, // Ensure the scrollbar is always visible
+                controller: _scrollController, // Use the same ScrollController
                 child: ListView.builder(
+                  controller: _scrollController, // Assign the ScrollController
                   itemCount: jokeState.jokes.length,
                   itemBuilder: (context, index) {
-                    final joke = jokeState.jokes[index];
-                    return JokeCard(joke: joke);
+                    return JokeCard(joke: jokeState.jokes[index]);
                   },
+                  padding: const EdgeInsets.symmetric(vertical: 0.0),
                 ),
               ),
             ),

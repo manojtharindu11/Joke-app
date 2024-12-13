@@ -21,6 +21,7 @@ class JokeState extends ChangeNotifier {
   // Fetch jokes from the service based on the selected category
   Future<void> fetchJokes() async {
     isLoading = true;
+    jokes = [];
     notifyListeners();
 
     jokes = await _jokeService.fetchJokes(
