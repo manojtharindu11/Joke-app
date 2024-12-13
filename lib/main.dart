@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jokeapp/screens/home_page.dart';
+import 'package:jokeapp/screens/splash_page.dart';
 import 'package:provider/provider.dart';
-import 'screens/home_page.dart';
 import 'state/joke_state.dart';
 
 void main() {
@@ -20,9 +21,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Joke Application',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const HomePage(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/splash',
+      routes: {
+        '/splash': (context) => const SplashPage(),
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }
