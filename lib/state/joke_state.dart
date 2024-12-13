@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jokeapp/data/dto/joke_dto.dart';
-import 'package:jokeapp/services/joke_service.dart';
+import 'package:fetch_jokes/data/dto/joke_dto.dart';
+import 'package:fetch_jokes/services/joke_service.dart';
 
 class JokeState extends ChangeNotifier {
   final JokeService _jokeService = JokeService();
