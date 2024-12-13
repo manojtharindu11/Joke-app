@@ -65,12 +65,6 @@ flutter:
     - assets/images/laughing_group.jpg
 
   fonts:
-    - family: Roboto-Bold
-      fonts:
-        - asset: assets/fonts/Roboto-Bold.ttf
-    - family: Roboto-Regular
-      fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
     - family: LobsterTwo-Bold
       fonts:
         - asset: assets/fonts/LobsterTwo-Bold.ttf
@@ -80,6 +74,12 @@ flutter:
     - family: LobsterTwo-Regular
       fonts:
         - asset: assets/fonts/LobsterTwo-Regular.ttf
+    - family: Lato-Italic
+      fonts:
+        - asset: assets/fonts/Lato-Italic.ttf
+    - family: Lato-Regular
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
