@@ -35,13 +35,24 @@ class FetchJokesButton extends StatelessWidget {
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                     ),
                   )
-                : const Text(
-                    "Fetch Jokes",
-                    style: TextStyle(
-                      fontFamily: 'Lato-Italic',
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
+                : const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.local_play, // Replace with any desired icon
+                        color: Colors.white,
+                        size: 24,
+                      ),
+                      SizedBox(width: 8), // Space between icon and text
+                      Text(
+                        "Fetch Jokes",
+                        style: TextStyle(
+                          fontFamily: 'Lato-Italic',
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
                   ),
           ),
         );
