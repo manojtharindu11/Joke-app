@@ -5,11 +5,15 @@ import 'package:jokeapp/utils/app_constants.dart';
 class JokeService {
   final Dio _dio = Dio();
 
-  Future<List<JokeDto>> fetchJokes() async {
+  // Updated fetchJokes method to accept a category parameter
+  Future<List<JokeDto>> fetchJokes({required String category}) async {
     try {
-      final response =
-          await _dio.get(AppConstants.jokeApiUrl);
+      // Pass the selected joke category to the API request
+      final response = await _dio.get(
+        '${AppConstants.jokeApiUrl}/$category?amount=5', // Appending the category parameter to the API URL
+      );
 
+      // Check if the 'jokes' key is present in the response
       if (response.data['jokes'] != null) {
         return (response.data['jokes'] as List)
             .map((joke) => JokeDto.fromJson(joke))
