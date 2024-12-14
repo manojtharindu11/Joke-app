@@ -50,8 +50,6 @@ class JokeState extends ChangeNotifier {
 
   // Placeholder method to check internet connection
   Future<bool> _isConnected() async {
-    var connectivityResult = await InternetConnectionChecker().hasConnection;
-    print(connectivityResult);
-    return connectivityResult;
+    return await InternetConnectionChecker().hasConnection;
   }
 }
