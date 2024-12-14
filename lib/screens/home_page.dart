@@ -31,11 +31,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final jokeState = Provider.of<JokeState>(context);
 
-    // Listen to loading state change and scroll to the top once loading is complete
+    // Handle loading state when jokes are empty
     if (!jokeState.isLoading && jokeState.jokes.isNotEmpty) {
+      // Scroll to the top when jokes are fetched
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        // Scroll to the top without any gap
-        _scrollController.jumpTo(0);
+        if (_scrollController.hasClients) {
+          _scrollController.jumpTo(0);
+        }
       });
     }
 
@@ -67,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                     shadows: [
                       Shadow(
                         color: Colors.black.withOpacity(0.5),
-                        offset: Offset(6, 3),
+                        offset: const Offset(6, 3),
                         blurRadius: 6,
                       ),
                     ],
@@ -82,9 +84,10 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               "Select the category",
               style: TextStyle(
-                  fontFamily: 'LobsterTwo-italic',
-                  color: Colors.black87,
-                  fontSize: 16),
+                fontFamily: 'LobsterTwo-italic',
+                color: Colors.black87,
+                fontSize: 16,
+              ),
             ),
           ),
           // Joke Category Dropdown
@@ -95,8 +98,14 @@ class _HomePageState extends State<HomePage> {
 
           const SizedBox(height: 20),
 
+          // Show loading spinner while jokes are loading
+          if (jokeState.isLoading)
+            const Center(
+              child: CircularProgressIndicator(),
+            ),
+
           // If no jokes fetched
-          if (jokeState.jokes.isEmpty && !jokeState.isLoading)
+          if (!jokeState.isLoading && jokeState.jokes.isEmpty)
             const Center(
               child: Text(
                 "No jokes fetched yet!",
