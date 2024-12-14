@@ -110,8 +110,45 @@ flutter pub get
 
 ---
 
+## **Contributing**
+
+We welcome contributions to improve Fetch-Jokes! To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add your feature description"
+   ```
+4. Push the branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a pull request.
+
+---
+
 ## **Future Enhancements**
 
 - **User-Generated Content**: Allow users to submit their jokes.
 - **Theming Options**: Introduce dark mode and custom themes.
 - **Social Sharing**: Add functionality to share jokes across social platforms.
+- **Voice Integration**: Implement a text-to-speech feature to read jokes aloud.
+- **Multi-Language Support**: Provide jokes in multiple languages.
+
+---
+
+## **License**
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+---
+
+## **Acknowledgments**
+
+- **Flutter Documentation**: For providing extensive guides and tutorials.
+- **Joke APIs**: For delivering the jokes that power this app.
+- **Contributors**: Special thanks to everyone who has contributed to this project.
