@@ -90,12 +90,12 @@ flutter pub get
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/manojtharindu11/fetch-jokes.git
    ```
 
 2. **Navigate to the Directory**:
    ```bash
-   cd joke_application
+   cd fetch-jokes
    ```
 
 3. **Fetch Dependencies**:
