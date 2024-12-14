@@ -1,7 +1,9 @@
+import 'package:fetch_jokes/components/no_internet_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:fetch_jokes/data/dto/joke_dto.dart';
 import 'package:fetch_jokes/services/joke_service.dart';
 import 'package:fetch_jokes/services/cache_manager.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class JokeState extends ChangeNotifier {
   final JokeService _jokeService = JokeService();
@@ -20,9 +22,9 @@ class JokeState extends ChangeNotifier {
   }
 
   // Fetch jokes from the service based on the selected category or use cache
-  Future<void> fetchJokes() async {
+  Future<void> fetchJokes(BuildContext context) async {
     isLoading = true;
-    jokes = [];
+    jokes = await CacheManager.getJokes(selectedCategory);
     notifyListeners();
 
     // Check if there's an internet connection (assuming you have a method to check it)
@@ -35,8 +37,7 @@ class JokeState extends ChangeNotifier {
         await CacheManager.saveJokes(selectedCategory, jokes);
       }
     } else {
-      // Use cached jokes if no internet
-      jokes = await CacheManager.getJokes(selectedCategory);
+      NoInternetPopup.show(context);
     }
 
     if (jokes.isNotEmpty) {
@@ -49,8 +50,8 @@ class JokeState extends ChangeNotifier {
 
   // Placeholder method to check internet connection
   Future<bool> _isConnected() async {
-    // You can use packages like 'connectivity_plus' to check for internet connection
-    // Return true if connected, false if not
-    return false; // For now, assuming always connected
+    var connectivityResult = await InternetConnectionChecker().hasConnection;
+    print(connectivityResult);
+    return connectivityResult;
   }
 }

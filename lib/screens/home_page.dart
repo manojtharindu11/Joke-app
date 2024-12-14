@@ -98,11 +98,11 @@ class _HomePageState extends State<HomePage> {
 
           const SizedBox(height: 20),
 
-          // Show loading spinner while jokes are loading
-          if (jokeState.isLoading)
-            const Center(
-              child: CircularProgressIndicator(),
-            ),
+          // // Show loading spinner while jokes are loading
+          // if (jokeState.isLoading)
+          //   const Center(
+          //     child: CircularProgressIndicator(),
+          //   ),
 
           // If no jokes fetched
           if (!jokeState.isLoading && jokeState.jokes.isEmpty)
@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             child: RefreshIndicator(
               onRefresh: () async {
-                jokeState.fetchJokes();
+                jokeState.fetchJokes(context);
               },
               child: Scrollbar(
                 isAlwaysShown: true, // Ensure the scrollbar is always visible

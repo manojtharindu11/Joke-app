@@ -15,7 +15,7 @@ class FetchJokesButton extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: ElevatedButton(
-            onPressed: jokeState.isLoading ? null : _fetchJokes,
+            onPressed: jokeState.isLoading ? null : () => _fetchJokes(context),
             style: ElevatedButton.styleFrom(
               primary: jokeState.isLoading
                   ? Colors.white
@@ -61,8 +61,8 @@ class FetchJokesButton extends StatelessWidget {
   }
 
   // Function to fetch jokes
-  void _fetchJokes() {
+  void _fetchJokes(BuildContext context) {
     // Call the fetchJokes method in jokeState and update loading state
-    jokeState.fetchJokes();
+    jokeState.fetchJokes(context);
   }
 }
