@@ -1,9 +1,8 @@
 import 'dart:convert';
-import 'dart:math';
 import '../data/dto/joke_dto.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class CashManager {
+class CacheManager {
   static const String _cacheKey = 'cached_jokes';
 
   // Save jokes to shared preferences
