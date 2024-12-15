@@ -13,6 +13,7 @@ Fetch-Jokes is a Flutter-based application that delivers a delightful joke-telli
 - **Offline Support**: Cache jokes locally for uninterrupted enjoyment.
 - **No Internet Alert**: Displays a pop-up notification when offline.
 - **Customizations**: Personalized app icon and name for a unique branding experience.
+- **JSON Serialization/Deserialization**: Ensures accurate data handling when converting JSON data from the API into Dart objects.
 
 ---
 
